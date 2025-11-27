@@ -44,7 +44,7 @@ class _SplashScreenState extends State<SplashScreen> {
     } catch (e) {
       // Ignore errors, just exit
     } finally {
-      Future.delayed(const Duration(milliseconds: 100), () {
+      Future.delayed(const Duration(milliseconds: 10), () {
         SystemNavigator.pop(animated: false);
       });
     }

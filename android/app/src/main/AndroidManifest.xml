@@ -1,8 +1,11 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.empty.vivo_nfc_changer">
+    
     <application
-        android:label="NFC_Changer"
+        android:label="NFC Changer"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/launcher_icon"
         android:allowBackup="false"
         android:taskAffinity=""
         android:excludeFromRecents="true">
@@ -23,8 +26,26 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity
+           android:name="io.flutter.embedding.android.FlutterActivity"
+           android:theme="@style/LaunchTheme"
+           android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+           android:hardwareAccelerated="true"
+           android:windowSoftInputMode="adjustResize"
+           tools:ignore="Instantiatable" />
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+        <service
+           android:name=".MyTileService"
+           android:icon="@mipmap/launcher_icon"
+           android:label="Flutter App Tile"
+           android:permission="android.permission.BIND_QUICK_SETTINGS_TILE"
+           android:exported="true">
+
+           <intent-filter>
+               <action android:name="android.service.quicksettings.action.QS_TILE"/>
+           </intent-filter>
+       </service>
     </application>
 </manifest>
